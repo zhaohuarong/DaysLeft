@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DaysLeft</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_new">New</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="msg1">happly every day. ^_^</string>
+    <string name="notification1">There are</string>
+    <string name="notification2">days away from</string>
+</resources>

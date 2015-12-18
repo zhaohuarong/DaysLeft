@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height"
+                android:background="@color/aquamarine"
+                android:layout_marginTop="@dimen/item_margin"
+                android:layout_marginBottom="@dimen/item_margin">
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|left"
+        android:text="xxxxxxxx"/>
+
+    <TextView
+        android:id="@+id/itemDays"
+        android:layout_width="@dimen/item_height"
+        android:layout_height="match_parent"
+        android:paddingRight="30dp"
+        android:gravity="center"
+        android:text="0"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
