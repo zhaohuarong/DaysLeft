@@ -28,7 +28,7 @@ public class MainService extends Service {
     public static final int NOTIFICATION_ID = 0x000012;
     private static final int TIMER_PERIOD = 60 * 60 * 1000;
     private static final int TIMER_MSG = 0x000001;
-    private int oldDay = 0;
+//    private int oldDay = 0;
     Preferences mp;
 
     @Nullable
@@ -43,7 +43,7 @@ public class MainService extends Service {
         //Log.v(TAG, "ServiceDemo onCreate");
         super.onCreate();
 
-        oldDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+//        oldDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 
         mp = new Preferences(MainService.this);
 

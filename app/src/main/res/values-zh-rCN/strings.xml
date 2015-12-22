@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">倒记日</string>
     <string name="action_settings">设置</string>
+    <string name="action_about">关于</string>
     <string name="action_new">新建</string>
     <string name="msg1">开心每一天. ^_^</string>
     <string name="notification1">还有</string>
     <string name="notification2">天离</string>
     <string name="dialog_title">标题:</string>
+    <string name="about_author">作者: 赵华荣\n邮箱: zhaohuarong@gmail.com</string>
 </resources>

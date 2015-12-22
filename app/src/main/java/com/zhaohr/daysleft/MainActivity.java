@@ -26,9 +26,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,8 +62,12 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, R.string.msg1, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Random rand = new Random();
+                int randNum = rand.nextInt(50);
+                String[] tips = getResources().getStringArray(R.array.tips);
+                if(tips.length <= randNum)
+                    return;
+                Snackbar.make(view, tips[randNum], Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
 
@@ -132,6 +138,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_settings) {
 //            conn.updateNoti("xxxx", 5);
+            return true;
+        } else if (id == R.id.action_about) {
+            Toast.makeText(MainActivity.this, R.string.about_author, Toast.LENGTH_LONG).show();
             return true;
         } else if(id == R.id.action_new) {
             Calendar c = Calendar.getInstance();

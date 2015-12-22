@@ -12,15 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical|left"
+        android:textSize="18sp"
         android:layout_marginLeft="@dimen/item_margin_left"
         android:text="xxxxxxxx"/>
 
     <TextView
         android:id="@+id/itemDays"
-        android:layout_width="@dimen/item_height"
+        android:layout_width="@dimen/item_number_width"
         android:layout_height="match_parent"
-        android:paddingRight="30dp"
-        android:gravity="center"
+        android:paddingRight="10dp"
+        android:gravity="center_vertical|right"
+        android:textSize="36sp"
+        android:textStyle="bold"
         android:text="0"
         android:layout_alignParentRight="true"/>
 
