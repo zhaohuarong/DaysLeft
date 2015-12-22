@@ -21,6 +21,7 @@ public class ItemView extends RelativeLayout {
     public int mIndex = -1;
 
     private ItemDate mDate;
+    private RelativeLayout mainLayout = null;
     private TextView viewTitle = null;
     private TextView viewDays = null;
 //    private LongPressRunnable longPressRunnable = new LongPressRunnable();
@@ -37,6 +38,7 @@ public class ItemView extends RelativeLayout {
 
         viewTitle = (TextView)findViewById(R.id.itemTitle);
         viewDays = (TextView)findViewById(R.id.itemDays);
+        mainLayout = (RelativeLayout)findViewById(R.id.item_layout);
     }
 
     public void setDateInfo(ItemDate d) {
@@ -47,6 +49,28 @@ public class ItemView extends RelativeLayout {
     private void updateView() {
         viewTitle.setText(mDate.title());
         viewDays.setText("" + mDate.getLeftDays());
+    }
+
+    public void setBackgroundType(int type) {
+        int resID = R.mipmap.item_bg_1;
+        switch(type % 5) {
+            case 0:
+                resID = R.mipmap.item_bg_1;
+                break;
+            case 1:
+                resID = R.mipmap.item_bg_2;
+                break;
+            case 2:
+                resID = R.mipmap.item_bg_3;
+                break;
+            case 3:
+                resID = R.mipmap.item_bg_4;
+                break;
+            case 4:
+                resID = R.mipmap.item_bg_5;
+                break;
+        }
+        mainLayout.setBackgroundResource(resID);
     }
 
     public int getLeftDays() {

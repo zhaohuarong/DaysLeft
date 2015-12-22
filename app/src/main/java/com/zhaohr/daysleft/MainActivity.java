@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
             ItemDate d = lstDate.get(i);
             ItemView r = new ItemView(MainActivity.this, this);
             r.mIndex = i;
+            r.setBackgroundType(i);
             r.setDateInfo(d);
             lstView.add(r);
             mainLayout.addView(r);

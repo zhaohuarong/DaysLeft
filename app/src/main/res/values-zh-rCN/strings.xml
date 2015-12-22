@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DaysLeft</string>
+    <string name="app_name">倒记日</string>
     <string name="action_settings">设置</string>
     <string name="action_new">新建</string>
     <string name="msg1">开心每一天. ^_^</string>
