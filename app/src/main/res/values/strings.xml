@@ -7,4 +7,5 @@
     <string name="msg1">happly every day. ^_^</string>
     <string name="notification1">There are</string>
     <string name="notification2">days away from</string>
+    <string name="dialog_title">Title:</string>
 </resources>

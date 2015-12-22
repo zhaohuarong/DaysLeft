@@ -5,4 +5,5 @@
     <string name="msg1">开心每一天. ^_^</string>
     <string name="notification1">还有</string>
     <string name="notification2">天离</string>
+    <string name="dialog_title">标题:</string>
 </resources>

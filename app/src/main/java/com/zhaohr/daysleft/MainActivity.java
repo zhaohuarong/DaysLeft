@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openDateDialog(String strTitle, int nYear, int nMonth, int nDay) {
-        final DateDialog dialog = new DateDialog(MainActivity.this);
+        final DateDialog dialog = new DateDialog(MainActivity.this, R.style.dialog);
         dialog.setTitle(strTitle);
         dialog.setDate(nYear, nMonth, nDay);
         dialog.setOnPositiveListener(new View.OnClickListener() {

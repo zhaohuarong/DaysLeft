@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import android.view.ViewConfiguration;
+
 public class ItemView extends RelativeLayout {
 
     public int mIndex = -1;
@@ -24,9 +26,12 @@ public class ItemView extends RelativeLayout {
     private RelativeLayout mainLayout = null;
     private TextView viewTitle = null;
     private TextView viewDays = null;
-//    private LongPressRunnable longPressRunnable = new LongPressRunnable();
-    Context mContext;
-    MainActivity mMainActivity;
+    private Context mContext;
+    private MainActivity mMainActivity;
+    private int mLastMotionX, mLastMotionY;
+    private boolean isMoved;
+    private Runnable mLongPressRunnable;
+    private static final int TOUCH_SLOP = 20;
 
     public ItemView(Context context, MainActivity activity) {
         super(context);
@@ -39,6 +44,14 @@ public class ItemView extends RelativeLayout {
         viewTitle = (TextView)findViewById(R.id.itemTitle);
         viewDays = (TextView)findViewById(R.id.itemDays);
         mainLayout = (RelativeLayout)findViewById(R.id.item_layout);
+
+        mLongPressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                openPopMenu();
+            }
+        };
     }
 
     public void setDateInfo(ItemDate d) {
@@ -85,20 +98,27 @@ public class ItemView extends RelativeLayout {
         return String.valueOf(mDate.year()) + "-" + String.valueOf(mDate.month()) + "-" + String.valueOf(mDate.day());
     }
 
-    private int count = 0;
-    private boolean isDialogShow = false;
-    @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            isDialogShow = false;
-        } else if(event.getAction() == MotionEvent.ACTION_UP) {
-            count = 0;
-        }
-        if(!isDialogShow && count > 10) {
-            isDialogShow = true;
-            openPopMenu();
-        } else {
-            count++;
+        int x = (int) event.getX();
+        int y = (int) event.getY();
+
+        switch(event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mLastMotionX = x;
+                mLastMotionY = y;
+                isMoved = false;
+                postDelayed(mLongPressRunnable, ViewConfiguration.getLongPressTimeout());
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if(isMoved) break;
+                if(Math.abs(mLastMotionX-x) > TOUCH_SLOP || Math.abs(mLastMotionY-y) > TOUCH_SLOP) {
+                    isMoved = true;
+                    removeCallbacks(mLongPressRunnable);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                removeCallbacks(mLongPressRunnable);
+                break;
         }
         return true;
     }
@@ -111,7 +131,7 @@ public class ItemView extends RelativeLayout {
                 switch(which) {
                     case 0: {
                         //modify
-                        final DateDialog dialog1 = new DateDialog(mMainActivity);
+                        final DateDialog dialog1 = new DateDialog(mMainActivity, R.style.dialog);
                         dialog1.setTitle(mDate.title());
                         dialog1.setDate(mDate.year(), mDate.month(), mDate.day());
                         dialog1.show();

@@ -6,4 +6,5 @@
     <dimen name="item_height">64dp</dimen>
     <dimen name="item_margin">2dp</dimen>
     <dimen name="item_margin_left">15dp</dimen>
+    <dimen name="dialog_button_width">80dp</dimen>
 </resources>
