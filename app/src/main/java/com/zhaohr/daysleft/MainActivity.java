@@ -140,7 +140,8 @@ public class MainActivity extends AppCompatActivity {
 //            conn.updateNoti("xxxx", 5);
             return true;
         } else if (id == R.id.action_about) {
-            Toast.makeText(MainActivity.this, R.string.about_author, Toast.LENGTH_LONG).show();
+            AboutDialog dig = new AboutDialog(MainActivity.this);
+            dig.show();
             return true;
         } else if(id == R.id.action_new) {
             Calendar c = Calendar.getInstance();
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openDateDialog(String strTitle, int nYear, int nMonth, int nDay) {
-        final DateDialog dialog = new DateDialog(MainActivity.this, R.style.dialog);
+        final DateDialog dialog = new DateDialog(MainActivity.this);
         dialog.setTitle(strTitle);
         dialog.setDate(nYear, nMonth, nDay);
         dialog.setOnPositiveListener(new View.OnClickListener() {

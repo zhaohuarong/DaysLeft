@@ -131,7 +131,7 @@ public class ItemView extends RelativeLayout {
                 switch(which) {
                     case 0: {
                         //modify
-                        final DateDialog dialog1 = new DateDialog(mMainActivity, R.style.dialog);
+                        final DateDialog dialog1 = new DateDialog(mMainActivity);
                         dialog1.setTitle(mDate.title());
                         dialog1.setDate(mDate.year(), mDate.month(), mDate.day());
                         dialog1.show();

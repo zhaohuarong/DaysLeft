@@ -19,8 +19,8 @@ public class DateDialog extends Dialog {
     private Button positiveButton, negativeButton;
     private String mTitle;
 
-    public DateDialog(Context context, int style) {
-        super(context, style);
+    public DateDialog(Context context) {
+        super(context, R.style.dialog);
 
         View mView = LayoutInflater.from(getContext()).inflate(R.layout.date_dialog, null);
         super.setContentView(mView);

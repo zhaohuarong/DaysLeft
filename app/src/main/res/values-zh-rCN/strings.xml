@@ -7,5 +7,6 @@
     <string name="notification1">还有</string>
     <string name="notification2">天离</string>
     <string name="dialog_title">标题:</string>
-    <string name="about_author">作者: 赵华荣\n邮箱: zhaohuarong@gmail.com</string>
+    <string name="about_author">作者: 赵华荣</string>
+    <string name="about_mail">邮箱: zhaohuarong@gmail.com</string>
 </resources>

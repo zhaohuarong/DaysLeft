@@ -8,4 +8,8 @@
     <dimen name="item_margin_left">15dp</dimen>
     <dimen name="item_number_width">76dp</dimen>
     <dimen name="dialog_button_width">80dp</dimen>
+    <dimen name="about_margin_left">10dp</dimen>
+    <dimen name="about_margin_top">10dp</dimen>
+    <dimen name="about_margin">30dp</dimen>
+    <dimen name="about_margin_buttom">30dp</dimen>
 </resources>

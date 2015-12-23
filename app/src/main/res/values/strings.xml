@@ -9,5 +9,6 @@
     <string name="notification1">There are</string>
     <string name="notification2">days away from</string>
     <string name="dialog_title">Title:</string>
-    <string name="about_author">Author: zhaohuarong\nMail: zhaohuarong@gmail.com</string>
+    <string name="about_author">Author: zhaohuarong</string>
+    <string name="about_mail">Mail: zhaohuarong@gmail.com</string>
 </resources>
