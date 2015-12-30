@@ -26,12 +26,14 @@ public class ItemView extends RelativeLayout {
     private RelativeLayout mainLayout = null;
     private TextView viewTitle = null;
     private TextView viewDays = null;
+    private TextView viewDate = null;
     private Context mContext;
     private MainActivity mMainActivity;
     private int mLastMotionX, mLastMotionY;
     private boolean isMoved;
     private Runnable mLongPressRunnable;
     private static final int TOUCH_SLOP = 20;
+    private int backgroundResID = R.mipmap.item_bg_1;
 
     public ItemView(Context context, MainActivity activity) {
         super(context);
@@ -44,6 +46,7 @@ public class ItemView extends RelativeLayout {
         viewTitle = (TextView)findViewById(R.id.itemTitle);
         viewDays = (TextView)findViewById(R.id.itemDays);
         mainLayout = (RelativeLayout)findViewById(R.id.item_layout);
+        viewDate = (TextView)findViewById(R.id.item_date);
 
         mLongPressRunnable = new Runnable() {
 
@@ -62,28 +65,29 @@ public class ItemView extends RelativeLayout {
     private void updateView() {
         viewTitle.setText(mDate.title());
         viewDays.setText("" + mDate.getLeftDays());
+        viewDate.setText(getResources().getString(R.string.date) + mDate.year() + "-" + mDate.month() + "-" + mDate.day());
     }
 
     public void setBackgroundType(int type) {
-        int resID = R.mipmap.item_bg_1;
+        backgroundResID = R.mipmap.item_bg_1;
         switch(type % 5) {
             case 0:
-                resID = R.mipmap.item_bg_1;
+                backgroundResID = R.mipmap.item_bg_1;
                 break;
             case 1:
-                resID = R.mipmap.item_bg_2;
+                backgroundResID = R.mipmap.item_bg_2;
                 break;
             case 2:
-                resID = R.mipmap.item_bg_3;
+                backgroundResID = R.mipmap.item_bg_3;
                 break;
             case 3:
-                resID = R.mipmap.item_bg_4;
+                backgroundResID = R.mipmap.item_bg_4;
                 break;
             case 4:
-                resID = R.mipmap.item_bg_5;
+                backgroundResID = R.mipmap.item_bg_5;
                 break;
         }
-        mainLayout.setBackgroundResource(resID);
+        mainLayout.setBackgroundResource(backgroundResID);
     }
 
     public int getLeftDays() {
@@ -104,6 +108,7 @@ public class ItemView extends RelativeLayout {
 
         switch(event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                mainLayout.setBackgroundResource(R.mipmap.item_bg_pressed);
                 mLastMotionX = x;
                 mLastMotionY = y;
                 isMoved = false;
@@ -117,6 +122,7 @@ public class ItemView extends RelativeLayout {
                 }
                 break;
             case MotionEvent.ACTION_UP:
+                mainLayout.setBackgroundResource(backgroundResID);
                 removeCallbacks(mLongPressRunnable);
                 break;
         }

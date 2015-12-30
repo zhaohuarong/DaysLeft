@@ -7,14 +7,30 @@
                 android:layout_marginTop="@dimen/item_margin"
                 android:layout_marginBottom="@dimen/item_margin">
 
-    <TextView
-        android:id="@+id/itemTitle"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical|left"
-        android:textSize="18sp"
-        android:layout_marginLeft="@dimen/item_margin_left"
-        android:text="xxxxxxxx"/>
+        android:layout_marginLeft="@dimen/item_margin_left">
+
+        <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|left"
+            android:textSize="22sp"
+            android:text="xxxxxxxx"/>
+
+        <TextView
+            android:id="@+id/item_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:layout_marginBottom="6dp"
+            android:textStyle="italic"
+            android:textSize="10sp"
+            android:text="2000-1-1"/>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/itemDays"
