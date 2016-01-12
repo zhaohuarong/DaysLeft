@@ -56,7 +56,7 @@ public class Preferences extends ContextWrapper {
         for(String s : lst) {
             if(s.length() < 5)
                 continue;
-            ItemDate item = ItemDate.fromeString(s);
+            ItemDate item = ItemDate.fromString(s);
             lstArray.add(item);
         }
 

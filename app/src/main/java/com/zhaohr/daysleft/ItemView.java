@@ -4,6 +4,7 @@
 
 package com.zhaohr.daysleft;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -62,6 +63,7 @@ public class ItemView extends RelativeLayout {
         updateView();
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateView() {
         viewTitle.setText(mDate.title());
         viewDays.setText("" + mDate.getLeftDays());

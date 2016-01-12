@@ -40,7 +40,7 @@ public class ItemDate implements Comparable {
         return ret;
     }
 
-    public static ItemDate fromeString(String strData) {
+    public static ItemDate fromString(String strData) {
         String[] lst = strData.split(SIGN);
         if(lst.length != 4)
             return new ItemDate();
